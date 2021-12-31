@@ -5,23 +5,26 @@ import styled from 'styled-components';
 import { Header } from '../features/header/Header';
 import { PostGrid } from '../features/post-grid/PostGrid';
 import { CurrentSearch } from '../features/current-search/CurrentSearch';
+import { SearchHistory } from '../features/search-history/SearchHistory';
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  height: 94vh;
 `;
 
 const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   width: 25%;
-  padding: 24px 12px;
+  padding: 12px 0px 0px 12px;
   box-sizing: border-box;
 `;
 
 export const App = () => {
   const [posts, setPosts] = useState([]);
   const [currentTerm, setCurrentTerm] = useState('popular');
+  const [history, setHistory] = useState<string[]>(['popular']);
   const newPostsFactory = (json: any) => {
     return json.data.children.map((post: any) => {
       return {
@@ -44,9 +47,10 @@ export const App = () => {
       url = `https://www.reddit.com/search.json?q=${urlParam}`;
       term = param;
     }
+    setHistory([term, ...history]);
+    setCurrentTerm(term);
     const response = await fetch(url);
     const json = await response.json();
-    setCurrentTerm(term);
     setPosts(newPostsFactory(json));
   };
   useEffect(
@@ -55,7 +59,6 @@ export const App = () => {
         async () => {
           const response = await fetch('https://www.reddit.com/r/popular.json');
           const json = await response.json();
-          console.log(json.data.children);
           setPosts(newPostsFactory(json));
         }
       )();
@@ -68,6 +71,7 @@ export const App = () => {
       <Container>
         <Sidebar>
           <CurrentSearch currentTerm={currentTerm} />
+          <SearchHistory history={history} handleSearch={handleSearch} />
         </Sidebar>
         <PostGrid posts={posts} />
       </Container>

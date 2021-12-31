@@ -26,6 +26,7 @@ export const Search = ({ handleSearch }: SearchType) => {
   const handleKeyPress = ({ code }: any) => {
     if (code === 'Enter') {
       handleSearch(term);
+      setTerm('');
     }
   };
   return (

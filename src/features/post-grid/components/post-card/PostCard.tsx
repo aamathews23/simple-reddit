@@ -59,6 +59,7 @@ const Description = styled.p`
   font-family: sans-serif;
   font-size: 12px;
   margin: 12px 0px;
+  word-break: break-all;
 `;
 
 const Link = styled.a`
