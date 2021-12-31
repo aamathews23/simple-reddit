@@ -1,9 +1,11 @@
 // Import features
-import { TopPosts } from "../features/top-posts/TopPosts";
+import { Header } from '../features/header/Header';
+import { TopPosts } from '../features/top-posts/TopPosts';
 
 export const App = () => {
   return (
     <>
+      <Header />
       <TopPosts />
     </>
   );

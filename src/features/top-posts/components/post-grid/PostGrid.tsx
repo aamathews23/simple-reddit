@@ -9,6 +9,8 @@ const Grid = styled.div`
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   grid-auto-rows: fit-content;
   grid-auto-flow: dense;
+  width: 70%;
+  margin: auto;
 `;
 
 export interface PostGridType {

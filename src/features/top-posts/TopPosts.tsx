@@ -7,7 +7,9 @@ import { PostGrid } from './components/post-grid/PostGrid';
 const Container = styled.div`
   padding: 24px;
   margin: auto;
-  width: 70%;
+  overflow-y: scroll;
+  height: 95vh;
+  box-sizing: border-box;
 `;
 
 export const TopPosts = () => {

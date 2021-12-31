@@ -38,6 +38,7 @@ const XtraTallCard = styled.div`
 const Title = styled.h3`
   font-family: sans-serif;
   font-size: 16px;
+  letter-spacing: 0.4px;
   margin: 0px 0px 8px 0px;
 `;
 
