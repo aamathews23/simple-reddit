@@ -1,9 +1,10 @@
-import React from 'react';
+// Import features
+import { TopPosts } from "../features/top-posts/TopPosts";
 
 export const App = () => {
   return (
-    <div>
-      Hello world
-    </div>
+    <>
+      <TopPosts />
+    </>
   );
 };
