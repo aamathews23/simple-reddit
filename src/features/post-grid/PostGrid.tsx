@@ -25,6 +25,16 @@ const Grid = styled.div`
   grid-auto-flow: dense;
 `;
 
+const CenteredText = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 24px;
+`;
+
 export interface PostGridType {
   posts: any[];
 }
@@ -32,23 +42,27 @@ export interface PostGridType {
 export const PostGrid = ({ posts }: PostGridType) => {
   return (
     <Container>
-      <Grid>
-        {
-          posts.map((post, index) => (
-            <PostCard
-              key={index}
-              title={post.title}
-              image={post.thumbnail}
-              description={post.description}
-              subreddit={post.subreddit}
-              author={post.author}
-              ups={post.ups}
-              downs={post.downs}
-              url={post.url}
-            />
-          ))
-        }
-      </Grid>
+      {
+        posts && posts.length > 0 ?
+          <Grid>
+            {
+              posts.map((post, index) => (
+                <PostCard
+                  key={index}
+                  title={post.title}
+                  image={post.thumbnail}
+                  description={post.description}
+                  subreddit={post.subreddit}
+                  author={post.author}
+                  ups={post.ups}
+                  downs={post.downs}
+                  url={post.url}
+                />
+              ))
+            }
+          </Grid> :
+          <CenteredText>No results found...</CenteredText>
+      }
     </Container>
   );
 };

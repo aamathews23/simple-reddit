@@ -30,10 +30,21 @@ const Sidebar = styled.div`
   }
 `;
 
+const CenteredText = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 24px;
+`;
+
 export const App = () => {
   const [posts, setPosts] = useState([]);
   const [currentTerm, setCurrentTerm] = useState('popular');
   const [history, setHistory] = useState<string[]>(['popular']);
+  const [isLoading, setIsLoading] = useState(false);
   const newPostsFactory = (json: any) => {
     return json.data.children.map((post: any) => {
       return {
@@ -52,6 +63,7 @@ export const App = () => {
     const urlParam = encodeURIComponent(param);
     let url = 'https://www.reddit.com/r/popular.json';
     let term = 'popular';
+    setIsLoading(true);
     if (param) {
       url = `https://www.reddit.com/search.json?q=${urlParam}`;
       term = param;
@@ -61,14 +73,17 @@ export const App = () => {
     const response = await fetch(url);
     const json = await response.json();
     setPosts(newPostsFactory(json));
+    setIsLoading(false);
   };
   useEffect(
     () => {
+      setIsLoading(true);
       (
         async () => {
           const response = await fetch('https://www.reddit.com/r/popular.json');
           const json = await response.json();
           setPosts(newPostsFactory(json));
+          setIsLoading(false);
         }
       )();
     },
@@ -82,7 +97,11 @@ export const App = () => {
           <CurrentSearch currentTerm={currentTerm} />
           <SearchHistory history={history} handleSearch={handleSearch} />
         </Sidebar>
-        <PostGrid posts={posts} />
+        {
+          !isLoading ?
+            <PostGrid posts={posts} /> :
+            <CenteredText>Loading...</CenteredText>
+        }
       </Container>
     </>
   );
