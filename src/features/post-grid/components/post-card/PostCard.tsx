@@ -13,7 +13,7 @@ export interface PostCardType {
 
 const card = `
   border: 1px solid #c4c4c4;
-  padding: 12px 24px 0px 24px;
+  padding: 12px 12px 0px 12px;
   border-radius: 4px;
 
   &:hover, &:focus {

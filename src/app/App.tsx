@@ -11,6 +11,11 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   height: 94vh;
+
+  @media screen and (max-width: 600px) {
+    height: fit-content;
+    flex-direction: column;
+  }
 `;
 
 const Sidebar = styled.div`
@@ -19,6 +24,10 @@ const Sidebar = styled.div`
   width: 25%;
   padding: 12px 0px 0px 12px;
   box-sizing: border-box;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const App = () => {

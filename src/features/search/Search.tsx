@@ -15,7 +15,11 @@ const Input = styled.input`
   border-radius: 20px;
   background-color: white;
   padding: 8px 12px;
-  width: 300px;
+  width: stretch;
+
+  @media screen and (min-width: 768px) {
+    width: 300px;
+  }
 `;
 
 export const Search = ({ handleSearch }: SearchType) => {

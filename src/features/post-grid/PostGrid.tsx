@@ -6,10 +6,15 @@ import { PostCard } from './components/post-card/PostCard';
 const Container = styled.div`
   padding: 24px;
   margin: auto;
-  overflow-y: scroll;
-  height: 94vh;
   box-sizing: border-box;
   width: 75%;
+  height: 94vh;
+  overflow-y: scroll;
+
+  @media screen and (max-width: 600px) {
+    width: fit-content;
+    height: fit-content;
+  }
 `;
 
 const Grid = styled.div`
