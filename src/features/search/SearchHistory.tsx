@@ -1,9 +1,8 @@
 import styled from 'styled-components';
+import { useAppSelector } from '../../app/hooks';
 
-export interface SearchHistoryType {
-  history: string[];
-  handleSearch: (param: string) => void;
-}
+import { useAppDispatch } from '../../app/hooks';
+import { updateCurrentSearch } from '../search/searchSlice';
 
 const List = styled.ul`
   margin: 0px;
@@ -33,7 +32,9 @@ const Item = styled.li`
   ${item}
 `;
 
-export const SearchHistory = ({ history, handleSearch }: SearchHistoryType) => {
+export const SearchHistory = () => {
+  const history = useAppSelector(state => state.search.history);
+  const dispatch = useAppDispatch();
   const formatItem = (item: string) => {
     if (item && item.length > 32) {
       return `${item.substring(0, 32)}...`;
@@ -48,7 +49,7 @@ export const SearchHistory = ({ history, handleSearch }: SearchHistoryType) => {
             return (
               <GreyItem
                 key={index}
-                onClick={() => handleSearch(item)}
+                onClick={() => dispatch(updateCurrentSearch(item))}
               >
                 {formatItem(item)}
               </GreyItem>
@@ -58,7 +59,7 @@ export const SearchHistory = ({ history, handleSearch }: SearchHistoryType) => {
             return (
               <Item
                 key={index}
-                onClick={() => handleSearch(item)}
+                onClick={() => dispatch(updateCurrentSearch(item))}
               >
                 {formatItem(item)}
               </Item>

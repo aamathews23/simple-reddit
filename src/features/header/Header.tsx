@@ -3,10 +3,6 @@ import styled from 'styled-components';
 // Import features
 import { Search } from '../search/Search';
 
-export interface HeaderType {
-  handleSearch: (param: string) => void;
-}
-
 const Container = styled.header`
   display: flex;
   flex-direction: row;
@@ -52,11 +48,11 @@ const Link = styled.a`
   }
 `;
 
-export const Header = ({ handleSearch }: HeaderType) => {
+export const Header = () => {
   return (
     <Container>
       <Title>SimpleReddit</Title>
-      <Search handleSearch={handleSearch} />
+      <Search />
       <Link href="https://www.reddit.com">www.reddit.com</Link>
     </Container>
   );

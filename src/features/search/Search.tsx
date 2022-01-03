@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
-export interface SearchType {
-  handleSearch: (param: string) => void;
-}
+import { useAppDispatch } from '../../app/hooks';
+import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
 const Input = styled.input`
   font-family: sans-serif;
@@ -22,14 +21,21 @@ const Input = styled.input`
   }
 `;
 
-export const Search = ({ handleSearch }: SearchType) => {
+export const Search = () => {
   const [term, setTerm] = useState('');
+  const dispatch = useAppDispatch();
   const handleChange = ({ target: { value } }: any) => {
     setTerm(value);
   };
   const handleKeyPress = ({ code }: any) => {
     if (code === 'Enter') {
-      handleSearch(term);
+      if (!term) {
+        dispatch(updateCurrentSearch('popular'));
+        dispatch(updateSearchHistory('popular'));
+      } else {
+        dispatch(updateCurrentSearch(term));
+        dispatch(updateSearchHistory(term));
+      }
       setTerm('');
     }
   };
