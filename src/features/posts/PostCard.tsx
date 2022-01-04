@@ -7,7 +7,6 @@ export interface PostCardType {
   subreddit: string;
   author: string;
   ups: number;
-  downs: number;
   url: string;
 }
 
@@ -72,7 +71,7 @@ const Link = styled.a`
   }
 `;
 
-export const PostCard = ({ title, image, description, subreddit, author, ups, downs, url }: PostCardType) => {
+export const PostCard = ({ title, image, description, subreddit, author, ups, url }: PostCardType) => {
   const titleView = (
     <Title>
       <Link
@@ -97,7 +96,7 @@ export const PostCard = ({ title, image, description, subreddit, author, ups, do
         target="_blank"
       >
         <strong>r/{subreddit}</strong>
-      </Link> | {ups} | {downs}
+      </Link> | {ups}
     </Subtitle>
   );
   const imageView = (

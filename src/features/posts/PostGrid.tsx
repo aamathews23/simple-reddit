@@ -6,7 +6,7 @@ import { useAppSelector } from '../../app/hooks';
 import { PostCard } from './PostCard';
 
 import { useAppDispatch } from '../../app/hooks';
-import { loadPosts, setIsLoading } from './postsSlice';
+import { thunkLoadPosts } from './postsSlice';
 
 const Container = styled.div`
   padding: 24px;
@@ -45,36 +45,9 @@ export const PostGrid = () => {
   const isLoading = useAppSelector(state => state.posts.isLoading);
   const currentSearch = useAppSelector(state => state.search.currentSearch);
   const dispatch = useAppDispatch();
-  const newPostsFactory = (json: any) => {
-    return json.data.children.map((post: any) => {
-      return {
-        author: post.data.author,
-        subreddit: post.data.subreddit,
-        title: post.data.title,
-        downs: post.data.downs,
-        ups: post.data.ups,
-        thumbnail: post.data.thumbnail,
-        description: post.data.selftext,
-        url: post.data.permalink,
-      };
-    });
-  };
   useEffect(
     () => {
-      dispatch(setIsLoading(true));
-      (
-        async () => {
-          const urlParam = encodeURIComponent(currentSearch);
-          let url = 'https://www.reddit.com/r/popular.json';
-          if (currentSearch) {
-            url = `https://www.reddit.com/search.json?q=${urlParam}`;
-          }
-          const response = await fetch(url);
-          const json = await response.json();
-          dispatch(loadPosts(newPostsFactory(json)));
-          dispatch(setIsLoading(false));
-        }
-      )();
+      dispatch(thunkLoadPosts(currentSearch));
     },
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentSearch]
@@ -97,7 +70,6 @@ export const PostGrid = () => {
                       subreddit={post.subreddit}
                       author={post.author}
                       ups={post.ups}
-                      downs={post.downs}
                       url={post.url}
                     />
                   ))
