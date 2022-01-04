@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { useAppSelector } from '../../app/hooks';
 
 import { useAppDispatch } from '../../app/hooks';
-import { updateCurrentSearch } from '../search/searchSlice';
+import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
 const List = styled.ul`
   margin: 0px;
@@ -41,6 +41,10 @@ export const SearchHistory = () => {
     }
     return item;
   };
+  const handleItemClick = (item: string) => {
+    dispatch(updateCurrentSearch(item));
+    dispatch(updateSearchHistory(item))
+  };
   return (
     <List>
       {
@@ -49,7 +53,7 @@ export const SearchHistory = () => {
             return (
               <GreyItem
                 key={index}
-                onClick={() => dispatch(updateCurrentSearch(item))}
+                onClick={() => handleItemClick(item)}
               >
                 {formatItem(item)}
               </GreyItem>
@@ -59,7 +63,7 @@ export const SearchHistory = () => {
             return (
               <Item
                 key={index}
-                onClick={() => dispatch(updateCurrentSearch(item))}
+                onClick={() => handleItemClick(item)}
               >
                 {formatItem(item)}
               </Item>
