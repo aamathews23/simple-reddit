@@ -14,20 +14,24 @@ const Container = styled.div`
   box-sizing: border-box;
   width: 75%;
   height: 94vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 
   @media screen and (max-width: 600px) {
     width: fit-content;
     height: fit-content;
+    padding: 12px;
   }
 `;
 
 const Grid = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  grid-auto-rows: fit-content;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   grid-auto-flow: dense;
+
+  @media screen and (max-width: 600px) {
+    grid-gap: 12px;
+  }
 `;
 
 const CenteredText = styled.div`

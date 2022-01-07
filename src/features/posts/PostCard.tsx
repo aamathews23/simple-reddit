@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 export interface PostCardType {
   title: string;
@@ -10,144 +12,149 @@ export interface PostCardType {
   url: string;
 }
 
-const card = `
-  border: 1px solid #c4c4c4;
-  padding: 12px 12px 0px 12px;
+const Card = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  font-family: sans-serif;
 
   &:hover, &:focus {
-    background-color: #f6f6f6;
+    transform: scale(1.01);
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
   }
 `;
 
-const ShortCard = styled.div`
-  ${card}
-`;
-
-const TallCard = styled.div`
-  ${card}
-  grid-row: span 2;
-`;
-
-const XtraTallCard = styled.div`
-  ${card}
-  grid-row: span 3;
-`;
-
 const Title = styled.h3`
-  font-family: sans-serif;
   font-size: 16px;
   letter-spacing: 0.4px;
-  margin: 0px 0px 8px 0px;
+  word-break: break-all;
+  margin: 0px;
+  padding: 12px 12px 0px 12px;
 `;
 
-const Subtitle = styled.p`
-  font-family: sans-serif;
-  font-size: 12px;
-  margin: 0px 0px 12px 0px;
-`;
+const FooterItem = styled.p`
+  font-size: 16px;
+  margin: 0px 8px 0px 0px;
+  color: #565656;
 
-const Image = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px 0px 12px 0px;
+  & > * {
+    color: #565656;
+  }
 `;
 
 const Description = styled.p`
-  font-family: sans-serif;
-  font-size: 12px;
-  margin: 12px 0px;
+  font-size: 14px;
+  margin: 0px;
+  padding: 0px 12px;
   word-break: break-all;
 `;
 
 const Link = styled.a`
-  color: black;
+  color: inherit;
   text-decoration: none;
 
   &:hover, &:focus {
-    color: black;
+    color: inherit;
     text-decoration: underline;
   }
 `;
 
+const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+`;
+
+const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 8px;
+`;
+
+const Footer = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  background-color: #f6f6f6;
+  padding: 8px 8px 8px 8px;
+`;
+
 export const PostCard = ({ title, image, description, subreddit, author, ups, url }: PostCardType) => {
-  const titleView = (
-    <Title>
-      <Link
-        href={`https://www.reddit.com${url}`}
-        target="_blank"
-      >
-        {
-          image === 'nsfw' && '[NSFW] '
-        }
-        {
-          title.length > 50 ?
-          `${title.substring(0, 50)}...` :
-          title
-        }
-      </Link>
-    </Title>
+  const cardHeader = (
+    <Header>
+      <Title>
+        <Link
+          href={`https://www.reddit.com${url}`}
+          target="_blank"
+        >
+          {
+            image === 'nsfw' && '[NSFW] '
+          }
+          {
+            title
+          }
+        </Link>
+      </Title>
+    </Header>
   );
-  const subtitleView = (
-    <Subtitle>
-      <Link
-        href={`https://www.reddit.com/r/${subreddit}`}
-        target="_blank"
-      >
-        <strong>r/{subreddit}</strong>
-      </Link> | {ups}
-    </Subtitle>
-  );
-  const imageView = (
-    <Image>
-      <img src={image} alt="Post" style={{height: 250, width: 250}} />
-    </Image>
-  );
-  const descriptionView = (
-    <Description>
+  const cardBody = (
+    <Body>
       {
-        description.length > 300 ?
-        `${description.substring(0, 300)}...` :
-        description
+        image && image !== 'self' && image !== 'default' && image !== 'nsfw' ?
+        <img src={image} alt="Post" /> :
+        <Description>
+          {
+            description.length > 300 ?
+            `${description.substring(0, 300)}...` :
+            description
+          }
+        </Description>
       }
-    </Description>
+    </Body>
   );
-  const userView = (
-    <Subtitle>
-      <Link
-        href={`https://www.reddit.com/user/${author}`}
-        target="_blank"
-      >
-        <em>u/{author}</em>
-      </Link>
-    </Subtitle>
+  const cardFooter = (
+    <Footer>
+      <FooterItem>
+        <FontAwesomeIcon icon={faHeart} /> {ups}
+      </FooterItem>
+      <FooterItem>
+        <Link
+          href={`https://www.reddit.com/r/${subreddit}`}
+          target="_blank"
+        >
+          r/{subreddit}
+        </Link>
+      </FooterItem>
+      <FooterItem>
+        <Link
+          href={`https://www.reddit.com/user/${author}`}
+          target="_blank"
+        >
+          u/{author}
+        </Link>
+      </FooterItem>
+    </Footer>
   );
+  let style;
   if (image && image !== 'self' && image !== 'default' && image !== 'nsfw') {
-    return (
-      <XtraTallCard>
-        {titleView}
-        {subtitleView}
-        {imageView}
-        {userView}
-      </XtraTallCard>
-    );
+    if (title && title.length > 100) {
+      style = { gridRow: 'span 3' };
+    } else {
+      style = { gridRow: 'span 2' };
+    }
   } else if (description) {
-    return (
-      <TallCard>
-        {titleView}
-        {subtitleView}
-        {descriptionView}
-        {userView}
-      </TallCard>
-    );
+    style = { gridRow: 'span 2' };
   } else {
-    return (
-      <ShortCard>
-        {titleView}
-        {subtitleView}
-        {userView}
-      </ShortCard>
-    );
+    style = {};
   }
+  return (
+    <Card style={style}>
+      {cardHeader}
+      {cardBody}
+      {cardFooter}
+    </Card>
+  );
 };
