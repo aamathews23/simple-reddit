@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
+// Import global components
+import { Link } from '../../components/Link';
+
 export interface PostCardType {
   title: string;
   description: string;
@@ -51,16 +54,6 @@ const Description = styled.p`
   margin: 0px;
   padding: 0px 12px;
   word-break: break-all;
-`;
-
-const Link = styled.a`
-  color: inherit;
-  text-decoration: none;
-
-  &:hover, &:focus {
-    color: inherit;
-    text-decoration: underline;
-  }
 `;
 
 const Header = styled.div`
