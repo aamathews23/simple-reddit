@@ -1,35 +1,64 @@
 import styled from 'styled-components';
-import { useAppSelector } from '../../app/hooks';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
-const List = styled.ul`
-  margin: 0px;
-  padding: 0px;
-  list-style: none;
-  word-break: break-all;
-`;
+const Sidebar = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin: 16px 0px 16px 12px;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 
-const item = `
-  font-family: sans-serif;
-  font-size: 16px;
-  padding: 8px 8px;
-
-  &:hover, &:focus {
-    background-color: #c4c4c4;
-    cursor: pointer;
-    text-decoration: underline;
+  @media screen and (max-width: 600px) {
+    display: none;
   }
 `;
 
-const GreyItem = styled.li`
-  ${item}
-  background-color: #f6f6f6;
+const Title = styled.h3`
+  font-family: sans-serif;
+  margin: 8px;
+`;
+
+const Text = styled.p`
+  font-family: sans-serif;
+  font-size: 14px;
+  margin: 8px;
+`;
+
+const List = styled.ul`
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+  word-break: break-all;
+  height: 100%;
 `;
 
 const Item = styled.li`
-  ${item}
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: sans-serif;
+  font-size: 16px;
+  padding: 8px;
+  background-color: #f6f6f6;
+  margin: 8px;
+  border-radius: 8px;
+
+  &:hover, &:focus {
+    cursor: pointer;
+    text-decoration: underline;
+    transform: scale(1.01);
+    box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  svg {
+    margin-right: 4px;
+  }
 `;
 
 export const SearchHistory = () => {
@@ -46,31 +75,26 @@ export const SearchHistory = () => {
     dispatch(updateSearchHistory(item))
   };
   return (
-    <List>
-      {
-        history.slice(0, 24).map((item, index) => {
-          if (index % 2 === 0) {
-            return (
-              <GreyItem
-                key={index}
-                onClick={() => handleItemClick(item)}
-              >
-                {formatItem(item)}
-              </GreyItem>
-            );
-          }
-          else {
-            return (
-              <Item
-                key={index}
-                onClick={() => handleItemClick(item)}
-              >
-                {formatItem(item)}
-              </Item>
-            );
-          }
-        })
-      }
-    </List>
+    <Sidebar>
+      <Title>Search History</Title>
+      <Text>View your search history here. Click on a previous search to quickly run that search again.</Text>
+      <Text>Your current search is denoted with a star and will always be at the top of the list!</Text>
+      <List>
+        {
+          history.slice(0, 16).map((item, index) => (
+            <Item
+              key={index}
+              onClick={() => handleItemClick(item)}
+            >
+              {
+                index === 0 &&
+                <FontAwesomeIcon icon={faStar} />
+              }
+              {formatItem(item)}
+            </Item>
+          ))
+        }
+      </List>
+    </Sidebar>
   );
 };
