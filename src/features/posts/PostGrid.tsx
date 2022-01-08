@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import { useAppSelector } from '../../app/hooks';
 
 // Import features
 import { PostCard } from './PostCard';
+import { Loader } from './Loader';
+import { NoResults } from './NoResults';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { thunkLoadPosts } from './postsSlice';
 
 const Container = styled.div`
@@ -52,17 +53,6 @@ const Grid = styled.div`
   }
 `;
 
-const CenteredText = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
-  font-size: 24px;
-  color: #1c0d4a;
-`;
-
 export const PostGrid = () => {
   const posts = useAppSelector(state => state.posts.posts);
   const isLoading = useAppSelector(state => state.posts.isLoading);
@@ -79,7 +69,7 @@ export const PostGrid = () => {
     <Container>
       {
         isLoading ?
-          <CenteredText>Loading...</CenteredText> :
+          <Loader /> :
           (
             posts && posts.length > 0 ?
               <Grid>
@@ -98,7 +88,7 @@ export const PostGrid = () => {
                   ))
                 }
               </Grid> :
-              <CenteredText>No results found...</CenteredText>
+              <NoResults text="No results found" />
             )
       }
     </Container>
