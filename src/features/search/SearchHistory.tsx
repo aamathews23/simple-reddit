@@ -2,6 +2,9 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
+// Import global components
+import { Text } from '../../components/Text';
+
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
@@ -22,17 +25,6 @@ const Sidebar = styled.div`
   @media screen and (min-width: 601px) and (max-width: 768px) {
     width: 40%;
   }
-`;
-
-const Title = styled.h3`
-  font-family: sans-serif;
-  margin: 8px;
-`;
-
-const Text = styled.p`
-  font-family: sans-serif;
-  font-size: 14px;
-  margin: 8px;
 `;
 
 const List = styled.ul`
@@ -83,9 +75,9 @@ export const SearchHistory = () => {
   };
   return (
     <Sidebar>
-      <Title>Search History</Title>
-      <Text>View your search history here. Click on a previous search to quickly run that search again.</Text>
-      <Text>Your current search is denoted with a star and will always be at the top of the list!</Text>
+      <Text tag="h3" style={{ margin: 8 }}>Search History</Text>
+      <Text style={{ margin: 8 }}>View your search history here. Click on a previous search to quickly run that search again.</Text>
+      <Text style={{ margin: 8 }}>Your current search is denoted with a star and will always be at the top of the list!</Text>
       <List>
         {
           history.slice(0, 16).map((item, index) => (

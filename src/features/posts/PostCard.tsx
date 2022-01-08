@@ -4,6 +4,7 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 // Import global components
 import { Link } from '../../components/Link';
+import { Text } from '../../components/Text';
 
 export interface PostCardType {
   title: string;
@@ -31,41 +32,18 @@ const Card = styled.div`
   }
 `;
 
-const Title = styled.h3`
-  font-size: 16px;
-  letter-spacing: 0.4px;
-  word-break: break-all;
-  margin: 0px;
-  padding: 12px 12px 0px 12px;
-`;
-
-const FooterItem = styled.p`
-  font-size: 16px;
-  margin: 0px 8px 0px 0px;
-  color: rgba(28, 13, 74, 0.9);
-
-  & > * {
-    color: rgba(28, 13, 74, 0.9);
-  }
-`;
-
-const Description = styled.p`
-  font-size: 14px;
-  margin: 0px;
-  padding: 0px 12px;
-  word-break: break-all;
-`;
-
 const Header = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 8px;
+  padding: 12px 12px 0px 12px;
 `;
 
 const Body = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 8px;
+  padding: 0px 12px;
 `;
 
 const Footer = styled.div`
@@ -74,12 +52,18 @@ const Footer = styled.div`
   flex-wrap: wrap;
   justify-content: start;
   padding: 8px 8px 8px 8px;
+  color: rgba(28, 13, 74, 0.9);
+
+  & > * {
+    color: rgba(28, 13, 74, 0.9);
+    margin-right: 8px !important;
+  }
 `;
 
 export const PostCard = ({ title, image, description, subreddit, author, ups, url }: PostCardType) => {
   const cardHeader = (
     <Header>
-      <Title>
+      <Text tag="h3">
         <Link
           href={`https://www.reddit.com${url}`}
           target="_blank"
@@ -91,7 +75,7 @@ export const PostCard = ({ title, image, description, subreddit, author, ups, ur
             title
           }
         </Link>
-      </Title>
+      </Text>
     </Header>
   );
   const cardBody = (
@@ -99,37 +83,37 @@ export const PostCard = ({ title, image, description, subreddit, author, ups, ur
       {
         image && image !== 'self' && image !== 'default' && image !== 'nsfw' ?
         <img src={image} alt="Post" /> :
-        <Description>
+        <Text>
           {
             description.length > 300 ?
             `${description.substring(0, 300)}...` :
             description
           }
-        </Description>
+        </Text>
       }
     </Body>
   );
   const cardFooter = (
     <Footer>
-      <FooterItem>
+      <Text>
         <FontAwesomeIcon icon={faHeart} /> {ups}
-      </FooterItem>
-      <FooterItem>
+      </Text>
+      <Text>
         <Link
           href={`https://www.reddit.com/r/${subreddit}`}
           target="_blank"
         >
           r/{subreddit}
         </Link>
-      </FooterItem>
-      <FooterItem>
+      </Text>
+      <Text>
         <Link
           href={`https://www.reddit.com/user/${author}`}
           target="_blank"
         >
           u/{author}
         </Link>
-      </FooterItem>
+      </Text>
     </Footer>
   );
   let style;

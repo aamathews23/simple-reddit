@@ -4,6 +4,7 @@ import { faReddit } from '@fortawesome/free-brands-svg-icons';
 
 // Import global components
 import { Link } from '../../components/Link';
+import { Text } from '../../components/Text';
 
 // Import features
 import { Search } from '../search/Search';
@@ -31,14 +32,10 @@ const Container = styled.header`
   }
 `;
 
-const Title = styled.h1`
+const Title = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: sans-serif;
-  font-size: 30px;
-  font-weight: 400;
-  letter-spacing: 0.6px;
   margin: 8px;
 
   svg {
@@ -58,7 +55,7 @@ export const Header = () => {
     <Container>
       <Title>
         <FontAwesomeIcon icon={faReddit} />
-        Simple
+        <Text tag="h1">Simple</Text>
       </Title>
       <Search />
       <LinkContainer>
