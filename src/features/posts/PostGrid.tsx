@@ -31,9 +31,13 @@ const Container = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: fit-content;
-    height: fit-content;
+    width: 100%;
+    height: 100%;
     padding: 12px;
+  }
+
+  @media screen and (min-width: 601px) and (max-width: 768px) {
+    width: 60%;
   }
 `;
 

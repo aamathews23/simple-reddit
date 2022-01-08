@@ -18,6 +18,10 @@ const Sidebar = styled.div`
   @media screen and (max-width: 600px) {
     display: none;
   }
+
+  @media screen and (min-width: 601px) and (max-width: 768px) {
+    width: 40%;
+  }
 `;
 
 const Title = styled.h3`

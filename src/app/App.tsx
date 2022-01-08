@@ -14,7 +14,7 @@ const Container = styled.div`
   @media screen and (max-width: 600px) {
     height: fit-content;
     flex-direction: column;
-    padding: 0px 12px 12px 12px;
+    margin: 0px;
   }
 `;
 
