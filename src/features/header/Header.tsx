@@ -1,4 +1,6 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faReddit } from '@fortawesome/free-brands-svg-icons';
 
 // Import features
 import { Search } from '../search/Search';
@@ -8,10 +10,11 @@ const Container = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  background-color: #f6f6f6;
   height: 6vh;
   box-sizing: border-box;
   padding: 16px 24px;
+  border-radius: 4px;
+  background-color: white;
 
   @media screen and (max-width: 600px) {
     height: inherit;
@@ -25,21 +28,30 @@ const Container = styled.header`
 `;
 
 const Title = styled.h1`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-family: sans-serif;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 400;
   letter-spacing: 0.6px;
   margin: 8px;
+  color: #1c0d4a;
+
+  svg {
+    font-size: 40px;
+    margin-right: 8px;
+  }
 `;
 
 const Link = styled.a`
   font-family: sans-serif;
-  color: black;
+  color: #1c0d4a;
   text-decoration: none;
   font-size: 16px;
 
   &:hover, &:focus {
-    color: black;
+    color: #1c0d4a;
     text-decoration: underline;
   }
 
@@ -51,7 +63,10 @@ const Link = styled.a`
 export const Header = () => {
   return (
     <Container>
-      <Title>SimpleReddit</Title>
+      <Title>
+        <FontAwesomeIcon icon={faReddit} />
+        Simple
+      </Title>
       <Search />
       <Link href="https://www.reddit.com">www.reddit.com</Link>
     </Container>

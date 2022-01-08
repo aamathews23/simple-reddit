@@ -10,14 +10,14 @@ const Input = styled.input`
   outline: none;
   border: none;
   background: none;
-  border: 1px solid #c4c4c4;
-  border-radius: 20px;
-  background-color: white;
+  border: 1px solid #1c0d4a;
+  border-radius: 4px;
   padding: 8px 12px;
   width: stretch;
+  color: #1c0d4a;
 
   @media screen and (min-width: 768px) {
-    width: 300px;
+    width: 500px;
   }
 `;
 

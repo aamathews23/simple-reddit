@@ -10,11 +10,25 @@ import { thunkLoadPosts } from './postsSlice';
 
 const Container = styled.div`
   padding: 24px;
-  margin: auto;
   box-sizing: border-box;
   width: 75%;
-  height: 94vh;
   overflow-y: auto;
+  border-radius: 4px;
+  background-color: white;
+  scrollbar-color: rgba(28, 13, 74, 0.3) white;
+  scrollbar-width: thin;
+
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: rgba(28, 13, 74, 0.3);
+
+    &:hover {
+      background: rgba(28, 13, 74, 0.6);
+    }
+  }
 
   @media screen and (max-width: 600px) {
     width: fit-content;
@@ -42,6 +56,7 @@ const CenteredText = styled.div`
   align-items: center;
   font-family: sans-serif;
   font-size: 24px;
+  color: #1c0d4a;
 `;
 
 export const PostGrid = () => {

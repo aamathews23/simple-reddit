@@ -19,6 +19,8 @@ const Card = styled.div`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   font-family: sans-serif;
+  background-color: #f4f0ff;
+  color: #1c0d4a;
 
   &:hover, &:focus {
     transform: scale(1.01);
@@ -37,10 +39,10 @@ const Title = styled.h3`
 const FooterItem = styled.p`
   font-size: 16px;
   margin: 0px 8px 0px 0px;
-  color: #565656;
+  color: rgba(28, 13, 74, 0.9);
 
   & > * {
-    color: #565656;
+    color: rgba(28, 13, 74, 0.9);
   }
 `;
 
@@ -78,7 +80,6 @@ const Footer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: start;
-  background-color: #f6f6f6;
   padding: 8px 8px 8px 8px;
 `;
 

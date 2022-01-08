@@ -9,10 +9,11 @@ const Sidebar = styled.div`
   display: flex;
   flex-direction: column;
   width: 25%;
-  margin: 16px 0px 16px 12px;
+  margin-right: 16px;
   box-sizing: border-box;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
+  color: #1c0d4a;
+  background-color: white;
 
   @media screen and (max-width: 600px) {
     display: none;
@@ -45,9 +46,11 @@ const Item = styled.li`
   font-family: sans-serif;
   font-size: 16px;
   padding: 8px;
-  background-color: #f6f6f6;
+  background-color: #1c0d4a;
+  color: white;
   margin: 8px;
-  border-radius: 8px;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 
   &:hover, &:focus {
     cursor: pointer;
