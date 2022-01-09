@@ -23,8 +23,7 @@ const Card = styled.div`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   font-family: sans-serif;
-  background-color: #f4f0ff;
-  color: #1c0d4a;
+  background-color: #fff;
 
   &:hover, &:focus {
     transform: scale(1.01);
@@ -36,7 +35,9 @@ const Header = styled.div`
   display: flex;
   flex-direction: column;
   margin-bottom: 8px;
-  padding: 12px 12px 0px 12px;
+  padding: 12px;
+  background-color: #e693f4;
+  border-radius: 4px 4px 0px 0px;
 `;
 
 const Body = styled.div`
@@ -52,18 +53,21 @@ const Footer = styled.div`
   flex-wrap: wrap;
   justify-content: start;
   padding: 8px 8px 8px 8px;
-  color: rgba(28, 13, 74, 0.9);
 
   & > * {
-    color: rgba(28, 13, 74, 0.9);
     margin-right: 8px !important;
+    
+  }
+
+  svg {
+    color: #b263c1;
   }
 `;
 
 export const PostCard = ({ title, image, description, subreddit, author, ups, url }: PostCardType) => {
   const cardHeader = (
     <Header>
-      <Text tag="h3">
+      <Text modifier="h3">
         <Link
           href={`https://www.reddit.com${url}`}
           target="_blank"
@@ -95,10 +99,10 @@ export const PostCard = ({ title, image, description, subreddit, author, ups, ur
   );
   const cardFooter = (
     <Footer>
-      <Text>
+      <Text modifier="b2">
         <FontAwesomeIcon icon={faHeart} /> {ups}
       </Text>
-      <Text>
+      <Text modifier="b2">
         <Link
           href={`https://www.reddit.com/r/${subreddit}`}
           target="_blank"
@@ -106,7 +110,7 @@ export const PostCard = ({ title, image, description, subreddit, author, ups, ur
           r/{subreddit}
         </Link>
       </Text>
-      <Text>
+      <Text modifier="b2">
         <Link
           href={`https://www.reddit.com/user/${author}`}
           target="_blank"

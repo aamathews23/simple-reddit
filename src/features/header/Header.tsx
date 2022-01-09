@@ -14,12 +14,12 @@ const Container = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 6vh;
+  height: 7vh;
   box-sizing: border-box;
   padding: 16px 24px;
-  border-radius: 4px;
-  background-color: white;
-  color: #1c0d4a;
+  background-color: #8365c1;
+  color: #fff;
+  box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 
   @media screen and (max-width: 600px) {
     height: inherit;
@@ -55,16 +55,18 @@ export const Header = () => {
     <Container>
       <Title>
         <FontAwesomeIcon icon={faReddit} />
-        <Text tag="h1">Simple</Text>
+        <Text modifier="h1">Simple</Text>
       </Title>
       <Search />
       <LinkContainer>
-        <Link
-          href="https://www.reddit.com"
-          target="_blank"
-        >
-          www.reddit.com
-        </Link>
+        <Text modifier="b2">
+          <Link
+            href="https://www.reddit.com"
+            target="_blank"
+          >
+            www.reddit.com
+          </Link>
+        </Text>        
       </LinkContainer>
     </Container>
   );

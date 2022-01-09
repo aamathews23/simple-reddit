@@ -8,8 +8,8 @@ import { SearchHistory } from '../features/search/SearchHistory';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
-  height: 89vh;
-  margin-top: 16px;
+  height: 90vh;
+  margin: 16px 16px 0px 16px;
 
   @media screen and (max-width: 600px) {
     height: fit-content;

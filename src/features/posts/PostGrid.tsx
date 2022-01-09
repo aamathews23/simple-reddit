@@ -15,8 +15,8 @@ const Container = styled.div`
   width: 75%;
   overflow-y: auto;
   border-radius: 4px;
-  background-color: white;
-  scrollbar-color: rgba(28, 13, 74, 0.3) white;
+  background-color: #fff;
+  scrollbar-color: #8365c1 #fff;
   scrollbar-width: thin;
 
   &::-webkit-scrollbar {
@@ -24,10 +24,10 @@ const Container = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: rgba(28, 13, 74, 0.3);
+    background: #8365c1;
 
     &:hover {
-      background: rgba(28, 13, 74, 0.6);
+      background: #8365c1;
     }
   }
 
@@ -35,6 +35,7 @@ const Container = styled.div`
     width: 100%;
     height: 100%;
     padding: 12px;
+    background: none;
   }
 
   @media screen and (min-width: 601px) and (max-width: 768px) {
@@ -45,7 +46,7 @@ const Container = styled.div`
 const Grid = styled.div`
   display: grid;
   grid-gap: 24px;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
   grid-auto-flow: dense;
 
   @media screen and (max-width: 600px) {

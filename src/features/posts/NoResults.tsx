@@ -11,7 +11,7 @@ const Container = styled.div`
   align-items: center;
   font-family: sans-serif;
   font-size: 24px;
-  color: #1c0d4a;
+  color: #c1002c;
 
   svg {
     font-size: 100px;

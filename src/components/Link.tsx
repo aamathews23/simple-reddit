@@ -1,10 +1,8 @@
 import styled from 'styled-components';
 
 const Container = styled.a`
-  font-family: sans-serif;
   color: inherit;
   text-decoration: none;
-  font-size: 16px;
 
   &:hover, &:focus {
     color: inherit;

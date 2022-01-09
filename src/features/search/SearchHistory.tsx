@@ -15,8 +15,8 @@ const Sidebar = styled.div`
   margin-right: 16px;
   box-sizing: border-box;
   border-radius: 4px;
-  color: #1c0d4a;
-  background-color: white;
+  color: #000;
+  background-color: #fff;
 
   @media screen and (max-width: 600px) {
     display: none;
@@ -42,8 +42,8 @@ const Item = styled.li`
   font-family: sans-serif;
   font-size: 16px;
   padding: 8px;
-  background-color: #1c0d4a;
-  color: white;
+  background-color: #b593f4;
+  color: #000;
   margin: 8px;
   border-radius: 4px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -53,6 +53,8 @@ const Item = styled.li`
     text-decoration: underline;
     transform: scale(1.01);
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    background-color: #8365c1;
   }
 
   svg {
@@ -75,7 +77,7 @@ export const SearchHistory = () => {
   };
   return (
     <Sidebar>
-      <Text tag="h3" style={{ margin: 8 }}>Search History</Text>
+      <Text modifier="h2" style={{ padding: 8, backgroundColor: '#8365c1', color: '#fff', borderRadius: '4px 4px 0px 0px' }}>Search History</Text>
       <Text style={{ margin: 8 }}>View your search history here. Click on a previous search to quickly run that search again.</Text>
       <Text style={{ margin: 8 }}>Your current search is denoted with a star and will always be at the top of the list!</Text>
       <List>

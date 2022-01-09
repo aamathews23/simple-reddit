@@ -10,11 +10,15 @@ const Input = styled.input`
   outline: none;
   border: none;
   background: none;
-  border: 1px solid #1c0d4a;
+  border: 1px solid #fff;
   border-radius: 4px;
   padding: 8px 12px;
   width: stretch;
-  color: #1c0d4a;
+  color: #fff;
+
+  &:focus {
+    border-width: 2px;
+  }
 
   @media screen and (min-width: 768px) {
     width: 500px;
