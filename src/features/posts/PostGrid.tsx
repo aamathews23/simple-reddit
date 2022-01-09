@@ -18,6 +18,7 @@ const Container = styled.div`
   background-color: #fff;
   scrollbar-color: #8365c1 #fff;
   scrollbar-width: thin;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 
   &::-webkit-scrollbar {
     width: 8px;

@@ -6,9 +6,8 @@ html, body {
 }
 
 body {
-  /* padding: 12px; */
   box-sizing: border-box;
-  background-color: #b593f4;
+  background-color: #e5e5e5;
 }
 
 @media screen and (max-width: 600px) {

@@ -17,6 +17,7 @@ const Sidebar = styled.div`
   border-radius: 4px;
   color: #000;
   background-color: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 
   @media screen and (max-width: 600px) {
     display: none;
