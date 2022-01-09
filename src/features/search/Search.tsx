@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
-import { useAppDispatch } from '../../app/hooks';
+import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
 const Container = styled.div`
@@ -36,6 +36,7 @@ const Input = styled.input`
 
 export const Search = () => {
   const [term, setTerm] = useState('');
+  const history = useAppSelector(state => state.search.history);
   const dispatch = useAppDispatch();
   const input = useRef(null);
   const handleContainerClick = () => {
@@ -48,12 +49,10 @@ export const Search = () => {
   };
   const handleKeyPress = ({ code }: any) => {
     if (code === 'Enter') {
-      if (!term) {
-        dispatch(updateCurrentSearch('popular'));
-        dispatch(updateSearchHistory('popular'));
-      } else {
-        dispatch(updateCurrentSearch(term));
-        dispatch(updateSearchHistory(term));
+      const newTerm = term || 'popular';
+      dispatch(updateCurrentSearch(newTerm));
+      if (history && !history.slice(0, 16).includes(newTerm)) {
+        dispatch(updateSearchHistory(newTerm));
       }
       setTerm('');
     }

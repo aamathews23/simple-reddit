@@ -43,8 +43,8 @@ const Item = styled.li`
   font-family: sans-serif;
   font-size: 16px;
   padding: 8px;
-  background-color: #9952ff;
-  color: #000;
+  background-color: ${props => props.color === '#fff' ? '#6122d0' : '#9952ff'};
+  color: ${props => props.color};
   margin: 8px;
   border-radius: 4px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -65,6 +65,8 @@ const Item = styled.li`
 
 export const SearchHistory = () => {
   const history = useAppSelector(state => state.search.history);
+  const currentSearch = useAppSelector(state => state.search.currentSearch);
+  const slicedHistory = history.slice(0, 16);
   const dispatch = useAppDispatch();
   const formatItem = (item: string) => {
     if (item && item.length > 32) {
@@ -74,7 +76,9 @@ export const SearchHistory = () => {
   };
   const handleItemClick = (item: string) => {
     dispatch(updateCurrentSearch(item));
-    dispatch(updateSearchHistory(item))
+    if (slicedHistory && !slicedHistory.includes(item)) {
+      dispatch(updateSearchHistory(item));
+    }
   };
   return (
     <Sidebar>
@@ -83,13 +87,14 @@ export const SearchHistory = () => {
       <Text style={{ margin: 8 }}>Your current search is denoted with a star and will always be at the top of the list!</Text>
       <List>
         {
-          history.slice(0, 16).map((item, index) => (
+          slicedHistory.map((item, index) => (
             <Item
               key={index}
               onClick={() => handleItemClick(item)}
+              color={currentSearch === item ? '#fff' : '#000'}
             >
               {
-                index === 0 &&
+                currentSearch === item &&
                 <FontAwesomeIcon icon={faStar} />
               }
               {formatItem(item)}
