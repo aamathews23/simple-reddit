@@ -36,7 +36,8 @@ const Header = styled.div`
   flex-direction: column;
   margin-bottom: 8px;
   padding: 12px;
-  background-color: #e693f4;
+  background-color: #b922d0;
+  color: #fff;
   border-radius: 4px 4px 0px 0px;
 `;
 
@@ -60,7 +61,7 @@ const Footer = styled.div`
   }
 
   svg {
-    color: #b263c1;
+    color: #ef5fff;
   }
 `;
 

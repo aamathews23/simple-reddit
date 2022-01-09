@@ -17,7 +17,7 @@ const Container = styled.header`
   height: 7vh;
   box-sizing: border-box;
   padding: 16px 24px;
-  background-color: #8365c1;
+  background-color: #6122d0;
   color: #fff;
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 

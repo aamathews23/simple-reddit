@@ -1,33 +1,48 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch } from '../../app/hooks';
 import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
-const Input = styled.input`
-  font-family: sans-serif;
-  font-size: 16px;
-  outline: none;
-  border: none;
-  background: none;
-  border: 1px solid #fff;
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: 2px solid #fff;
   border-radius: 4px;
   padding: 8px 12px;
   width: stretch;
-  color: #fff;
-
-  &:focus {
-    border-width: 2px;
-  }
+  font-family: 'Ubuntu', sans-serif;
 
   @media screen and (min-width: 768px) {
     width: 500px;
   }
+
+  & > * {
+    font-size: 20px;
+    color: #fff;
+  }
+`;
+
+const Input = styled.input`
+  outline: none;
+  border: none;
+  background: none;
+  margin-left: 8px;
+  width: 100%;
 `;
 
 export const Search = () => {
   const [term, setTerm] = useState('');
   const dispatch = useAppDispatch();
+  const input = useRef(null);
+  const handleContainerClick = () => {
+    if (input && input.current) {
+      (input.current as any).focus();
+    } 
+  };
   const handleChange = ({ target: { value } }: any) => {
     setTerm(value);
   };
@@ -44,11 +59,15 @@ export const Search = () => {
     }
   };
   return (
-    <Input
-      placeholder="Search..."
-      value={term}
-      onChange={handleChange}
-      onKeyPress={handleKeyPress}
-    />
+    <Container onClick={handleContainerClick}>
+      <FontAwesomeIcon icon={faSearch} />
+      <Input
+        ref={input}
+        value={term}
+        onChange={handleChange}
+        onKeyPress={handleKeyPress}
+      />
+    </Container>
+    
   );
 };
