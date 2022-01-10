@@ -4,14 +4,3 @@ html, body {
   margin: 0px;
   padding: 0px;
 }
-
-body {
-  box-sizing: border-box;
-  background-color: #e5e5e5;
-}
-
-@media screen and (max-width: 600px) {
-  body {
-    padding: 0px;
-  }  
-}

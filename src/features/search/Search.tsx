@@ -10,7 +10,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 2px solid #fff;
+  border: 2px solid ${props => props.theme.textOnPrimary};
   border-radius: 4px;
   padding: 8px 12px;
   width: stretch;
@@ -22,7 +22,7 @@ const Container = styled.div`
 
   & > * {
     font-size: 20px;
-    color: #fff;
+    color: ${props => props.theme.textOnPrimary};
   }
 `;
 

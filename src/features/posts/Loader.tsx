@@ -10,8 +10,8 @@ const Container = styled.div`
 `;
 
 const Spinner = styled.div`
-  border: 16px solid #9952ff;
-  border-top: 16px solid #6220d1;
+  border: 16px solid ${props => props.theme.primaryLight};
+  border-top: 16px solid ${props => props.theme.primary};
   border-radius: 50%;
   width: 120px;
   height: 120px;

@@ -23,7 +23,7 @@ const Card = styled.div`
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   font-family: sans-serif;
-  background-color: #fff;
+  background-color: ${props => props.theme.surface};
 
   &:hover, &:focus {
     transform: scale(1.01);
@@ -36,8 +36,8 @@ const Header = styled.div`
   flex-direction: column;
   margin-bottom: 8px;
   padding: 12px;
-  background-color: #b922d0;
-  color: #fff;
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.textOnSecondary};
   border-radius: 4px 4px 0px 0px;
 `;
 
@@ -57,11 +57,10 @@ const Footer = styled.div`
 
   & > * {
     margin-right: 8px !important;
-    
   }
 
   svg {
-    color: #ef5fff;
+    color: ${props => props.theme.secondaryLight};
   }
 `;
 

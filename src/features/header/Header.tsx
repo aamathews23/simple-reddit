@@ -14,11 +14,11 @@ const Container = styled.header`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 7vh;
+  height: 8vh;
   box-sizing: border-box;
   padding: 16px 24px;
-  background-color: #6122d0;
-  color: #fff;
+  background-color: ${props => props.theme.primary};
+  color: ${props => props.theme.textOnPrimary};
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 
   @media screen and (max-width: 600px) {

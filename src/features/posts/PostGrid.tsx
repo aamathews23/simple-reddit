@@ -15,8 +15,8 @@ const Container = styled.div`
   width: 75%;
   overflow-y: auto;
   border-radius: 4px;
-  background-color: #fff;
-  scrollbar-color: #6122d0 #fff;
+  background-color: ${props => props.theme.surface};
+  scrollbar-color: ${props => props.theme.primary} ${props => props.theme.surface};
   scrollbar-width: thin;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
 
@@ -25,10 +25,10 @@ const Container = styled.div`
   }
 
   &::-webkit-scrollbar-thumb {
-    background: #6122d0;
+    background: ${props => props.theme.primary};
 
     &:hover {
-      background: #20009e;
+      background: ${props => props.theme.primaryDark};
     }
   }
 
