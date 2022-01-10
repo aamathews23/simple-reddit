@@ -26,12 +26,18 @@ const Container = styled.header`
   @media screen and (max-width: 600px) {
     height: inherit;
     padding: 8px 8px;
-    flex-direction: column;
     position: -webkit-sticky;
     position: sticky;
     top: 0px;
     z-index: 1;
   }
+`;
+
+const FunctionContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
 `;
 
 const Title = styled.div`
@@ -43,6 +49,11 @@ const Title = styled.div`
   svg {
     font-size: 40px;
     margin-right: 8px;
+  }
+
+  @media screen and (max-width: 600px) {
+    font-size: 30px;
+    height: 5vh;
   }
 `;
 
@@ -58,9 +69,11 @@ export const Header = () => {
           <Text modifier="h1">Simple</Text>
         </Title>
       </Link>
-      <Search />
-      <Theme />
-      <History />
+      <FunctionContainer>
+        <Search />
+        <History />
+        <Theme />
+      </FunctionContainer>      
     </Container>
   );
 }

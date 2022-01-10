@@ -43,7 +43,7 @@ export const Search = () => {
         <SearchBar />
       </Container>
       <MobileContainer>
-        <FontAwesomeIcon icon={faSearch} onClick={handleOnOpen} />
+        <FontAwesomeIcon icon={faSearch} onClick={handleOnOpen} style={{ margin: 8}} />
         {
           showDrawer &&
           <Drawer onClose={handleOnClose}>

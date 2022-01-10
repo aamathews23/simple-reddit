@@ -6,8 +6,13 @@ import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { toggleDarkMode } from './themeSlice';
 
 const Container = styled.div`
-  font-size: 25px;
-  margin: 8px;
+  font-size: 30px;
+  margin: 16px;
+
+  @media screen and (max-width: 600px) {
+    font-size: 25px;
+    margin: 8px;
+  }
 `;
 
 export const Theme = () => {

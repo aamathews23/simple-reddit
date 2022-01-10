@@ -30,7 +30,7 @@ export const History = () => {
   };
   return (
     <Container>
-      <FontAwesomeIcon icon={faHistory} onClick={handleOnOpen} />
+      <FontAwesomeIcon icon={faHistory} onClick={handleOnOpen} style={{ margin: 8}} />
       {
         showDrawer &&
           <Drawer onClose={handleOnClose}>
