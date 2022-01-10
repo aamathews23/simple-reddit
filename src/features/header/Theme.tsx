@@ -9,6 +9,10 @@ const Container = styled.div`
   font-size: 30px;
   margin: 16px;
 
+  &:hover, &:focus {
+    cursor: pointer;
+  }
+
   @media screen and (max-width: 600px) {
     font-size: 25px;
     margin: 8px;
