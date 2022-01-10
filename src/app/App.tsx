@@ -36,12 +36,25 @@ const theme = {
     textOnSecondary: '#fff',
     textOnSurface: '#000',
     textOnError: '#fff',
+  },
+  dark: {
+    background: '#121212',
+    surface: '#292929',
+    primary: '#4b4b4b',
+    primaryDark: '#4b4b4b',
+    secondary: '#4b4b4b',
+    secondaryLight: '#e7b9ee',
+    error: '#c1002c',
+    textOnPrimary: '#b999eb',
+    textOnPrimaryDark: '#d5c2f2',
+    textOnSecondary: '#d78ae3',
+    textOnSurface: '#fff',
   }
 }
 
 export const App = () => {
   return (
-    <ThemeProvider theme={theme.light}>
+    <ThemeProvider theme={theme.dark}>
       <Header />
       <Container>
         <SearchHistory />

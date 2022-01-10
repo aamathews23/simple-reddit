@@ -46,6 +46,7 @@ const Body = styled.div`
   flex-direction: column;
   margin-bottom: 8px;
   padding: 0px 12px;
+  color: ${props => props.theme.textOnSurface};
 `;
 
 const Footer = styled.div`
@@ -54,6 +55,7 @@ const Footer = styled.div`
   flex-wrap: wrap;
   justify-content: start;
   padding: 8px 8px 8px 8px;
+  color: ${props => props.theme.textOnSurface};
 
   & > * {
     margin-right: 8px !important;
