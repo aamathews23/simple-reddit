@@ -9,8 +9,4 @@ The goal of this application was to expirement with **Redux**, **Styled Componen
 - Post cards that link to the Reddit post, subreddit, or user.
 - Search bar to allow the user to run new searches.
 - Mobile responsiveness.
-- Search history side bar which shows the current search, and running history of the last 16 searches. _(not available on mobile)_
-
-## Future features
-- Dark mode.
-- Mobile version of the search history that is displayed in a drawer component or similar.
+- Search history side bar which shows the current search, and running history of the last 16 searches.
