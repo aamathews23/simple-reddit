@@ -36,8 +36,8 @@ const Header = styled.div`
   flex-direction: column;
   margin-bottom: 8px;
   padding: 12px;
-  background-color: ${props => props.theme.secondary};
-  color: ${props => props.theme.textOnSecondary};
+  background-color: ${props => props.theme.primary};
+  color: ${props => props.theme.textOnPrimary};
   border-radius: 4px 4px 0px 0px;
   word-break: break-all;
 `;

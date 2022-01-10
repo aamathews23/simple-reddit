@@ -22,8 +22,8 @@ const Item = styled.li`
   font-family: sans-serif;
   font-size: 16px;
   padding: 8px;
-  background-color: ${props => props.theme.primary};
-  color: ${props => props.theme.textOnPrimary};
+  background-color: ${props => props.theme.secondary};
+  color: ${props => props.theme.textOnSecondary};
   margin: 8px;
   border-radius: 4px;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
@@ -33,8 +33,8 @@ const Item = styled.li`
     text-decoration: underline;
     transform: scale(1.01);
     box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.2);
-    background-color: ${props => props.theme.primaryDark};
-    color: ${props => props.theme.textOnPrimaryDark};
+    background-color: ${props => props.theme.secondaryDark};
+    color: ${props => props.theme.textOnSecondaryDark};
   }
 
   svg {

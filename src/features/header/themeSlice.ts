@@ -15,11 +15,13 @@ const initialState: ThemeState = {
     primaryDark: '#4b4b4b',
     primaryLight: '#777777',
     secondary: '#4b4b4b',
+    secondaryDark: '#4b4b4b',
     secondaryLight: '#e7b9ee',
     error: '#ea949c',
     textOnPrimary: '#b999eb',
     textOnPrimaryDark: '#d5c2f2',
     textOnSecondary: '#d78ae3',
+    textOnSecondaryDark: '#e7b9ee',
     textOnSurface: '#fff'
   },
   light: {
@@ -29,11 +31,13 @@ const initialState: ThemeState = {
     primaryDark: '#20009e',
     primaryLight: '#9854ff',
     secondary: '#b922d0',
+    secondaryDark: '#85009e',
     secondaryLight: '#ef5fff',
     error: '#c1002c',
     textOnPrimary: '#fff',
     textOnPrimaryDark: '#fff',
     textOnSecondary: '#fff',
+    textOnSecondaryDark: '#fff',
     textOnSurface: '#000'
   }
 };
