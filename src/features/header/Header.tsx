@@ -8,6 +8,7 @@ import { Text } from '../../components/Text';
 
 // Import components
 import { Theme } from './Theme';
+import { History } from './History';
 
 // Import features
 import { Search } from '../search/Search';
@@ -61,6 +62,7 @@ export const Header = () => {
       </Link>
       <Search />
       <Theme />
+      <History />
     </Container>
   );
 }

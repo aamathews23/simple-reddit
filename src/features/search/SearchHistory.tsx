@@ -2,38 +2,17 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
-// Import global components
-import { Text } from '../../components/Text';
-
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
 
-const Sidebar = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  margin-right: 16px;
-  box-sizing: border-box;
-  border-radius: 4px;
-  color: ${props => props.theme.textOnSurface};
-  background-color: ${props => props.theme.surface};
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
-
-  @media screen and (min-width: 601px) and (max-width: 768px) {
-    width: 40%;
-  }
-`;
+// Import global components
+import { Text } from '../../components/Text';
 
 const List = styled.ul`
   padding: 0px;
   margin: 0px;
   list-style: none;
   word-break: break-all;
-  height: 100%;
 `;
 
 const Item = styled.li`
@@ -81,7 +60,7 @@ export const SearchHistory = () => {
     }
   };
   return (
-    <Sidebar>
+    <>
       <Text modifier="h2" style={{ padding: 8, borderRadius: '4px 4px 0px 0px' }}>Search History</Text>
       <Text style={{ margin: 8 }}>View your search history here. Click on a previous search to quickly run that search again.</Text>
       <Text style={{ margin: 8 }}>Your current search is denoted with a star and will always be at the top of the list!</Text>
@@ -101,6 +80,6 @@ export const SearchHistory = () => {
           ))
         }
       </List>
-    </Sidebar>
+    </>
   );
 };
