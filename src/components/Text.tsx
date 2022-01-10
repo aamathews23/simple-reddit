@@ -5,12 +5,6 @@ const text = `
   margin: 0px;
 `;
 
-const Headline1 = styled.h1`
-  ${text}
-  font-family: 'Ubuntu', sans-serif;
-  font-size: 49px;
-`;
-
 const Headline2 = styled.h2`
   ${text}
   font-family: 'Ubuntu', sans-serif;
@@ -40,14 +34,12 @@ const Body2 = styled.p`
 
 export interface TextType {
   children: React.ReactNode;
-  modifier?: 'h1' | 'h2' | 'h3' | 'b1' | 'b2';
+  modifier?: 'h2' | 'h3' | 'b1' | 'b2';
   style?: React.CSSProperties;
 }
 
 export const Text = ({ children, modifier = 'b1', style }: TextType) => {
   switch(modifier) {
-    case 'h1':
-      return <Headline1 style={style}>{children}</Headline1>;
     case 'h2':
       return <Headline2 style={style}>{children}</Headline2>
     case 'h3':

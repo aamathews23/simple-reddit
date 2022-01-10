@@ -39,6 +39,7 @@ const Header = styled.div`
   background-color: ${props => props.theme.secondary};
   color: ${props => props.theme.textOnSecondary};
   border-radius: 4px 4px 0px 0px;
+  word-break: break-all;
 `;
 
 const Body = styled.div`

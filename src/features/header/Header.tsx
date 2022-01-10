@@ -47,13 +47,8 @@ const Title = styled.div`
   margin: 8px;
 
   svg {
-    font-size: 40px;
+    font-size: 35px;
     margin-right: 8px;
-  }
-
-  @media screen and (max-width: 600px) {
-    font-size: 30px;
-    height: 5vh;
   }
 `;
 
@@ -66,7 +61,7 @@ export const Header = () => {
       >
         <Title>
           <FontAwesomeIcon icon={faReddit} />
-          <Text modifier="h1">Simple</Text>
+          <Text modifier="h3">Simple</Text>
         </Title>
       </Link>
       <FunctionContainer>

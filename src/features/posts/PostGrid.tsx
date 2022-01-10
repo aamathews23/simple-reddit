@@ -53,7 +53,7 @@ const Grid = styled.div`
 
   @media screen and (max-width: 600px) {
     grid-gap: 12px;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 `;
 
