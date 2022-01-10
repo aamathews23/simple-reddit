@@ -61,7 +61,7 @@ export const SearchHistory = () => {
   };
   return (
     <>
-      <Text modifier="h2" style={{ padding: 8, borderRadius: '4px 4px 0px 0px' }}>Search History</Text>
+      <Text modifier="h2" style={{ margin: 8, borderRadius: '4px 4px 0px 0px' }}>Search History</Text>
       <Text style={{ margin: 8 }}>View your search history here. Click on a previous search to quickly run that search again.</Text>
       <Text style={{ margin: 8 }}>Your current search is denoted with a star and will always be at the top of the list!</Text>
       <List>

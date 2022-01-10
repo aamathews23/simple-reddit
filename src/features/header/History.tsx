@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHistory } from '@fortawesome/free-solid-svg-icons';
@@ -7,7 +8,6 @@ import { Drawer } from '../../components/Drawer';
 
 // Import features
 import { SearchHistory } from '../search/SearchHistory';
-import { useState } from 'react';
 
 const Container = styled.div`
   display: none;

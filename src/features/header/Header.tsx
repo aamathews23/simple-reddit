@@ -9,9 +9,7 @@ import { Text } from '../../components/Text';
 // Import components
 import { Theme } from './Theme';
 import { History } from './History';
-
-// Import features
-import { Search } from '../search/Search';
+import { Search } from './Search';
 
 const Container = styled.header`
   display: flex;
@@ -21,8 +19,8 @@ const Container = styled.header`
   height: 8vh;
   box-sizing: border-box;
   padding: 16px 24px;
-  background-color: ${props => props.theme.primary};
-  color: ${props => props.theme.textOnPrimary};
+  background-color: ${props => props.theme.surface};
+  color: ${props => props.theme.textOnSurface};
   box-shadow: 0 3px 12px 0 rgba(0, 0, 0, 0.3);
 
   @media screen and (max-width: 600px) {

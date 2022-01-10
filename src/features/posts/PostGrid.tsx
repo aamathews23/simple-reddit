@@ -34,9 +34,10 @@ const Container = styled.div`
 
   @media screen and (max-width: 600px) {
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     padding: 12px;
     background: none;
+    box-shadow: none;
   }
 
   @media screen and (min-width: 601px) and (max-width: 768px) {
@@ -52,6 +53,7 @@ const Grid = styled.div`
 
   @media screen and (max-width: 600px) {
     grid-gap: 12px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 `;
 

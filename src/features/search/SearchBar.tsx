@@ -4,25 +4,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
-import { updateCurrentSearch, updateSearchHistory } from '../search/searchSlice';
+import { updateCurrentSearch, updateSearchHistory } from './searchSlice';
 
 const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 2px solid ${props => props.theme.textOnPrimary};
+  border: 2px solid ${props => props.theme.textOnSurface};
   border-radius: 4px;
   padding: 8px 12px;
-  width: stretch;
   font-family: 'Ubuntu', sans-serif;
-
-  @media screen and (min-width: 768px) {
-    width: 500px;
-  }
 
   & > * {
     font-size: 20px;
-    color: ${props => props.theme.textOnPrimary};
+    color: ${props => props.theme.textOnSurface};
   }
 `;
 
@@ -31,10 +26,9 @@ const Input = styled.input`
   border: none;
   background: none;
   margin-left: 8px;
-  width: 100%;
 `;
 
-export const Search = () => {
+export const SearchBar = () => {
   const [term, setTerm] = useState('');
   const history = useAppSelector(state => state.search.history);
   const dispatch = useAppDispatch();
