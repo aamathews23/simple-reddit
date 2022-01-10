@@ -6,6 +6,9 @@ import { faReddit } from '@fortawesome/free-brands-svg-icons';
 import { Link } from '../../components/Link';
 import { Text } from '../../components/Text';
 
+// Import components
+import { Theme } from './Theme';
+
 // Import features
 import { Search } from '../search/Search';
 
@@ -44,30 +47,20 @@ const Title = styled.div`
   }
 `;
 
-const LinkContainer = styled.div`
-  @media screen and (max-width: 769px) {
-    display: none;
-  }
-`;
-
 export const Header = () => {
   return (
     <Container>
-      <Title>
-        <FontAwesomeIcon icon={faReddit} />
-        <Text modifier="h1">Simple</Text>
-      </Title>
+      <Link
+        href="https://www.reddit.com"
+        target="_blank"
+      >
+        <Title>
+          <FontAwesomeIcon icon={faReddit} />
+          <Text modifier="h1">Simple</Text>
+        </Title>
+      </Link>
       <Search />
-      <LinkContainer>
-        <Text modifier="b2">
-          <Link
-            href="https://www.reddit.com"
-            target="_blank"
-          >
-            www.reddit.com
-          </Link>
-        </Text>        
-      </LinkContainer>
+      <Theme />
     </Container>
   );
 }

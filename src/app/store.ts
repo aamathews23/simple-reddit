@@ -3,6 +3,7 @@ import thunkMiddleware, { ThunkAction } from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import search from '../features/search/searchSlice';
 import posts from '../features/posts/postsSlice';
+import theme from '../features/header/themeSlice';
 
 const composedEnhancer = composeWithDevTools(applyMiddleware(thunkMiddleware));
 
@@ -10,6 +11,7 @@ export const store = configureStore({
   reducer: {
     search,
     posts,
+    theme,
   },
   enhancers: [
     composedEnhancer,
